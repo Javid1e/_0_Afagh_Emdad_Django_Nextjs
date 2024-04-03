@@ -1,38 +1,38 @@
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+app/frontend/node_modules
+app/frontend/.pnp
+app/frontend/.pnp.js
+app/frontend/.yarn/install-state.gz
 
 # testing
-/coverage
+app/frontend/coverage
 
 # next.js
-/.next/
-/out/
+app/frontend/.next/
+app/frontend/out/
 
 # WebStorm IDE files
 .idea/
 
 # production
-/build
+app/frontend/build
 
 # misc
-.DS_Store
-*.pem
+app/frontend/.DS_Store
+app/frontend/*.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+app/frontend/npm-debug.log*
+app/frontend/yarn-debug.log*
+app/frontend/yarn-error.log*
 
 # local env files
-.env*.local
+app/frontend/.env*.local
 
 # vercel
-.vercel
+app/frontend/.vercel
 
 # typescript
-*.tsbuildinfo
-next-env.d.ts
+app/frontend/*.tsbuildinfo
+app/frontend/next-env.d.ts
