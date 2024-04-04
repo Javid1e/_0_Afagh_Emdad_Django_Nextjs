@@ -37,3 +37,4 @@ app/frontend/.vercel
 app/frontend/*.tsbuildinfo
 app/frontend/next-env.d.ts
 app/frontend/yarn.lock
+*.lock
