@@ -1,6 +1,6 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Next.js + NextUI',
-  description: 'Make beautiful websites regardless of your design experience.',
+  name: 'امداد خودرو افاق',
+  description: 'خدمات امدادی و یدک کش خودرو در استان اصفهان و جاده های حومه',
 };
