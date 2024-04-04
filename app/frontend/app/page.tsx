@@ -1,9 +1,3 @@
-
-
 export default function Home() {
-	return (
-		<section>
-			Landing
-		</section>
-	);
+  return <section>Landing</section>;
 }
