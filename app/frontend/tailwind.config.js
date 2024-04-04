@@ -9,7 +9,12 @@ module.exports = {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        iransans: ['var(--font-iran-sans)'],
+        iranyekan: ['var(--font-iran-yekan)'],
+      },
+    },
   },
   darkMode: 'class',
   plugins: [nextui()],
