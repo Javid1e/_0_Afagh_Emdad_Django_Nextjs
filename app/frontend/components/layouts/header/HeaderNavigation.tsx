@@ -29,7 +29,7 @@ const HeaderNavigation: React.FC<Props> = ({
       justify="center"
       className="hidden lg:flex flex-1 !justify-center"
     >
-      {siteConfig.siteNavigationItems.map((item: MenuItem, index: number) => (
+      {siteConfig.headerNavigationLinks.map((item: MenuItem, index: number) => (
         <NavbarItem
           id={`${id}-content-${index}`}
           key={item.href}

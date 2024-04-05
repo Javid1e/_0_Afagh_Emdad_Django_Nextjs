@@ -58,7 +58,7 @@ const Header = () => {
       <HeaderNavigation id="header-navbar-navigation" activeItem={activeItem} />
       <NavbarMenu style={{ height: 'auto', overflowY: 'auto' }}>
         <div className="mx-4 mt-2 flex flex-col gap-2 ">
-          {siteConfig.siteNavigationItems.map((item, index) => (
+          {siteConfig.headerNavigationLinks.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link href={item.href} size="lg">
                 {item.label}
