@@ -5,25 +5,10 @@ import { Providers } from './providers';
 import clsx from 'clsx';
 import React from 'react';
 import Header from '@/components/layouts/header/Header';
-import { IranYekan, IranSans } from '@/config/fonts';
+import { IranSans } from '@/config/fonts';
+import { Footer } from '@/components/layouts/footer/Footer';
 
-interface Viewport {
-  width: string;
-  initialScale: number;
-  userScalable: boolean | undefined;
-}
-
-interface ThemeColorSetting {
-  media: string;
-  color: string;
-}
-
-interface CustomMetadata extends Metadata {
-  viewport?: Viewport;
-  themeColor?: ThemeColorSetting[];
-}
-
-export const metadata: CustomMetadata = {
+export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
@@ -34,51 +19,40 @@ export const metadata: CustomMetadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    userScalable: false,
-  },
+};
+export const viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
 };
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" dir="rtl" suppressHydrationWarning>
+    <html dir="rtl" lang="en" suppressHydrationWarning>
       <head>
-        {metadata.viewport && (
-          <meta
-            name="viewport"
-            content={`width=${metadata.viewport.width}, initial-scale=${metadata.viewport.initialScale},
-             user-scalable=${metadata.viewport.userScalable ? 'yes' : 'no'}`}
-          />
-        )}
-        {metadata.themeColor?.map((colorSetting, index) => (
-          <meta
-            key={index}
-            name="theme-color"
-            content={colorSetting.color}
-            media={colorSetting.media}
-          />
-        ))}
+        <meta
+          name="viewport"
+          content={`width=device-width, initial-scale=1, ${viewport.themeColor.map((color) => (color.media ? `${color.media} and ` : `${color.color},`)).join('')}`}
+        />
       </head>
       <body
         className={clsx(
-          'bg-background font-sans antialiased',
+          'font-iransans min-h-screen bg-primary-50 shadow-xl antialiased',
           IranSans.variable,
-          IranYekan.variable,
         )}
       >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <Header />
-          {children}
+          <div className="relative flex flex-col h-full">
+            <Header />
+            <main className="container mx-auto pt-16 px-6 flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>
