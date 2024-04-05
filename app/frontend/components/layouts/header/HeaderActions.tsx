@@ -10,6 +10,7 @@ import {
 } from '@nextui-org/dropdown';
 import { Avatar } from '@nextui-org/react';
 import { FaUserCircle } from 'react-icons/fa';
+import { siteConfig } from '@/config/site';
 interface Props {
   id?: string;
 }
@@ -54,19 +55,16 @@ const HeaderActions: React.FC<Props> = ({ id }) => {
             id={`${id}-content-profile-dropdown-menu`}
             variant="flat"
             aria-label="Link Actions"
+            items={siteConfig.headerActionsLinks}
           >
-            <DropdownItem
-              id={`${id}-content-profile-dropdown-menu-register`}
-              href="/register"
-            >
-              <p className="font-iransans text-center">ثبت نام</p>
-            </DropdownItem>
-            <DropdownItem
-              id={`${id}-content-profile-dropdown-menu-login`}
-              href="/login"
-            >
-              <p className="font-iransans text-center">ورود</p>
-            </DropdownItem>
+            {(item) => (
+              <DropdownItem
+                id={`${id}-content-profile-dropdown-menu-${item.id}`}
+                href={item.href}
+              >
+                <p className="font-iransans text-center">{item.label}</p>
+              </DropdownItem>
+            )}
           </DropdownMenu>
         </Dropdown>
       </NavbarItem>
