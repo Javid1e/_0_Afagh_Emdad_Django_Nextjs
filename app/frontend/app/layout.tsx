@@ -4,7 +4,8 @@ import { siteConfig } from '@/config/site';
 import { Providers } from './providers';
 import clsx from 'clsx';
 import React from 'react';
-import Head from 'next/head';
+import Header from '@/components/layouts/header/Header';
+import { IranYekan, IranSans } from '@/config/fonts';
 
 interface Viewport {
   width: string;
@@ -51,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" dir="rtl" suppressHydrationWarning>
-      <Head>
+      <head>
         {metadata.viewport && (
           <meta
             name="viewport"
@@ -67,9 +68,16 @@ export default function RootLayout({
             media={colorSetting.media}
           />
         ))}
-      </Head>
-      <body className={clsx(' bg-background font-sans antialiased')}>
+      </head>
+      <body
+        className={clsx(
+          'bg-background font-sans antialiased',
+          IranSans.variable,
+          IranYekan.variable,
+        )}
+      >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
+          <Header />
           {children}
         </Providers>
       </body>
