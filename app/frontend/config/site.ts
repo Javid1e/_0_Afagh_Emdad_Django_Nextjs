@@ -3,13 +3,17 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: 'امداد خودرو افاق',
   description: 'خدمات امدادی و یدک کش خودرو در استان اصفهان و جاده های حومه',
-  siteNavigationItems: [
+  headerNavigationLinks: [
     { label: 'درباره ما', href: '#aboutus' },
     { label: 'خدمات', href: '#services' },
     { label: 'گالری', href: '#gallery' },
     { label: 'نظرات مشتریان', href: '#reviews' },
     { label: 'سوالات رایج', href: '#faq' },
     { label: 'تماس با ما', href: '#contactus' },
+  ],
+  headerActionsLinks: [
+    { id: 'login', label: 'ورود', href: '/login', target: '_blank' },
+    { id: 'register', label: 'ثبت نام', href: '/register', target: '_blank' },
   ],
   footerBrandLinks: [
     { id: 'about-us', label: 'درباره ما', href: '#aboutus', target: '_blank' },
