@@ -1,20 +1,21 @@
 'use client';
 
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { SwitchProps, useSwitch } from '@nextui-org/switch';
 import { useTheme } from 'next-themes';
 import { useIsSSR } from '@react-aria/ssr';
 import clsx from 'clsx';
-
-import { SunFilledIcon, MoonFilledIcon } from '@/components/icons';
+import { SunFilledIcon, MoonFilledIcon } from '@/components/utils/icons';
 
 export interface ThemeSwitchProps {
+  id?: string;
   className?: string;
   classNames?: SwitchProps['classNames'];
 }
 
 export const ThemeSwitch: FC<ThemeSwitchProps> = ({
+  id,
   className,
   classNames,
 }) => {
@@ -25,21 +26,16 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
-  const {
-    Component,
-    slots,
-    isSelected,
-    getBaseProps,
-    getInputProps,
-    getWrapperProps,
-  } = useSwitch({
-    isSelected: theme === 'light' || isSSR,
-    'aria-label': `Switch to ${theme === 'light' || isSSR ? 'dark' : 'light'} mode`,
-    onChange,
-  });
+  const { slots, isSelected, getBaseProps, getInputProps, getWrapperProps } =
+    useSwitch({
+      isSelected: theme === 'light' || isSSR,
+      'aria-label': `Switch to ${theme === 'light' || isSSR ? 'dark' : 'light'} mode`,
+      onChange,
+    });
 
   return (
-    <Component
+    <label
+      id={`${id}-label`}
       {...getBaseProps({
         className: clsx(
           'px-px transition-opacity hover:opacity-80 cursor-pointer',
@@ -52,6 +48,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         <input {...getInputProps()} />
       </VisuallyHidden>
       <div
+        id={`${id}-label-dev`}
         {...getWrapperProps()}
         className={slots.wrapper({
           class: clsx(
@@ -71,11 +68,11 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         })}
       >
         {!isSelected || isSSR ? (
-          <SunFilledIcon size={22} />
+          <SunFilledIcon id={`${id}-label-dev-light`} size={22} />
         ) : (
-          <MoonFilledIcon size={22} />
+          <MoonFilledIcon id={`${id}-label-dev-dark`} size={22} />
         )}
       </div>
-    </Component>
+    </label>
   );
 };
