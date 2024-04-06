@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { NavbarContent, NavbarItem } from '@nextui-org/navbar';
-import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
+import {
+  CommonComponentProps,
+  ActiveLinkProps,
+  InsideLinkProps,
+} from '@/types';
 
-interface MenuItem {
-  href: string;
-  label: string;
-}
+// Merge ActiveLinkProps and InsideLinkProps to define the props interface
+type HeaderNavigationProps = CommonComponentProps &
+  ActiveLinkProps & {
+    navigationLinks: InsideLinkProps[];
+  };
 
-interface Props {
-  id?: string;
-  activeItem?: string;
-}
-
-const HeaderNavigation: React.FC<Props> = ({
+const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   id,
+  className,
   activeItem: propActiveItem,
+  navigationLinks,
 }) => {
   const [activeItem, setActiveItem] = useState(propActiveItem || '');
 
@@ -24,12 +26,8 @@ const HeaderNavigation: React.FC<Props> = ({
   };
 
   return (
-    <NavbarContent
-      id={`${id}-section`}
-      justify="center"
-      className="hidden lg:flex flex-1 !justify-center"
-    >
-      {siteConfig.headerNavigationLinks.map((item: MenuItem, index: number) => (
+    <NavbarContent id={`${id}-section`} justify="center" className={className}>
+      {navigationLinks.map((item: InsideLinkProps, index: number) => (
         <NavbarItem
           id={`${id}-content-${index}`}
           key={item.href}

@@ -1,16 +1,11 @@
 import React from 'react';
 import { NavbarBrand, NavbarContent } from '@nextui-org/navbar';
 import { Link } from '@nextui-org/link';
-import { ThemeSwitch } from '@/components/utils/theme-switch';
-interface Props {
-  id?: string;
-}
-const HeaderBrand: React.FC<Props> = ({ id }) => {
+import { ThemeSwitch } from '@/components/Utils/theme-switch';
+import { CommonComponentProps } from '@/types';
+const HeaderBrand: React.FC<CommonComponentProps> = ({ id, className }) => {
   return (
-    <NavbarContent
-      id={`${id}-section`}
-      className="justify-start !flex-grow-0 flex-1 "
-    >
+    <NavbarContent id={`${id}-section`} className={className}>
       <NavbarBrand id={`${id}-content-brand`}>
         <Link id={`${id}-content-brand-link`} href="/">
           <p
