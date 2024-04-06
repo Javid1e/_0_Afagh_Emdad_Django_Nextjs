@@ -1,13 +1,16 @@
 import React from 'react';
-import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
 import clsx from 'clsx';
 import { IranYekan } from '@/config/fonts';
-interface Props {
-  id?: string;
-  className?: string;
-}
-export const FooterSiteInfo: React.FC<Props> = ({ id, className }) => {
+import { CommonComponentProps, OutSideLinkProps } from '@/types';
+type FooterSiteInfoProps = CommonComponentProps & {
+  footerSiteInfoLinks: OutSideLinkProps[];
+};
+export const FooterSiteInfo: React.FC<FooterSiteInfoProps> = ({
+  id,
+  className,
+  footerSiteInfoLinks,
+}) => {
   return (
     <div id={`${id}-section`} className={className}>
       <div
@@ -31,7 +34,7 @@ export const FooterSiteInfo: React.FC<Props> = ({ id, className }) => {
             id="footer-terms-policies-list"
             className=" flex flex-wrap justify-start items-center gap-4 text-xs  lg:justify-end list-none"
           >
-            {siteConfig.footerSiteInfo.map((item) => (
+            {footerSiteInfoLinks.map((item) => (
               <li
                 id={`footer-${item.id}-section`}
                 key={item.id}

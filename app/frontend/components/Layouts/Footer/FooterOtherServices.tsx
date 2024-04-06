@@ -1,12 +1,14 @@
 import React from 'react';
-import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
-
-interface Props {
-  id?: string;
-  className?: string;
-}
-export const FooterOtherServices: React.FC<Props> = ({ id, className }) => {
+import { CommonComponentProps, OutSideLinkProps } from '@/types';
+type FooterOtherServiceProps = CommonComponentProps & {
+  footerOtherServiceLinks: OutSideLinkProps[];
+};
+export const FooterOtherServices: React.FC<FooterOtherServiceProps> = ({
+  id,
+  className,
+  footerOtherServiceLinks,
+}) => {
   return (
     <div id={`${id}-section`} className={`${className}`}>
       <p
@@ -20,7 +22,7 @@ export const FooterOtherServices: React.FC<Props> = ({ id, className }) => {
         id={`${id}-content-list`}
         className="mt-6 space-y-4 text-sm list-none"
       >
-        {siteConfig.footerServiceLinks.map((item) => (
+        {footerOtherServiceLinks.map((item) => (
           <li key={item.href} id={`${id}-content-list-${item.id}-section`}>
             <Link
               id={`${id}-content-list-${item.id}-link`}

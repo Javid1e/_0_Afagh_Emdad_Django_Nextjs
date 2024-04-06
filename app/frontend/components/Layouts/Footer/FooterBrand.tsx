@@ -1,10 +1,10 @@
 import React from 'react';
-import { HeartFilledIcon } from '@/components/utils/icons';
-interface Props {
-  id?: string;
-  className?: string;
-}
-export const FooterBrand: React.FC<Props> = ({ id, className }) => {
+import { HeartFilledIcon } from '@/components/Utils/icons';
+import { CommonComponentProps } from '@/types';
+export const FooterBrand: React.FC<CommonComponentProps> = ({
+  id,
+  className,
+}) => {
   return (
     <div id={`${id}-section`} className={className}>
       <div id={`${id}-content-title`} className="flex flex-row items-center ">

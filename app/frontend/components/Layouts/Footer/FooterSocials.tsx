@@ -1,34 +1,40 @@
 import React from 'react';
-import { siteConfig } from '@/config/site';
 import {
   BaleIcon,
   RubikaIcon,
   InstagramIcon,
   TelegramIcon,
   WhatsAppIcon,
-} from '@/components/utils/icons';
+} from '@/components/Utils/icons';
 import { Link } from '@nextui-org/link';
-import { IconSvgProps } from '@/types';
-interface Props {
-  id: string;
-  className: string;
-}
-// Assuming each item in siteConfig.footerSocial corresponds to an icon component
-const iconComponents: Record<string, React.FC<IconSvgProps>> = {
+import {
+  CommonComponentProps,
+  IconComponentMap,
+  OutSideNamedLinkProps,
+} from '@/types';
+type FooterSocialsProps = CommonComponentProps & {
+  footerSocialLinks: OutSideNamedLinkProps[];
+};
+const iconComponents: IconComponentMap = {
   WhatsAppIcon,
   TelegramIcon,
   InstagramIcon,
   RubikaIcon,
   BaleIcon,
 };
-export const FooterSocials: React.FC<Props> = ({ id, className }) => {
+
+export const FooterSocials: React.FC<FooterSocialsProps> = ({
+  id,
+  className,
+  footerSocialLinks,
+}) => {
   return (
     <div id={`${id}-section`} className={`${className}`}>
       <ul
         id={`${id}-content-list`}
         className=" flex justify-center gap-6 list-none"
       >
-        {siteConfig.footerSocial.map((item) => {
+        {footerSocialLinks.map((item) => {
           const IconComponent = iconComponents[item.label];
           return (
             <li id={`${id}-content-list-${item.label}-section`} key={item.href}>
