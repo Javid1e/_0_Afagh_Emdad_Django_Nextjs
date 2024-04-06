@@ -4,9 +4,7 @@ import { siteConfig } from '@/config/site';
 import { Providers } from './providers';
 import clsx from 'clsx';
 import React from 'react';
-import Header from '@/components/layouts/header/Header';
 import { IranSans } from '@/config/fonts';
-import { Footer } from '@/components/layouts/footer/Footer';
 
 export const metadata: Metadata = {
   title: {
@@ -46,13 +44,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <div className="relative flex flex-col h-full">
-            <Header />
-            <main className="container mx-auto pt-16 px-6 flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          {children}
         </Providers>
       </body>
     </html>
