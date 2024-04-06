@@ -3,13 +3,39 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: 'امداد خودرو افاق',
   description: 'خدمات امدادی و یدک کش خودرو در استان اصفهان و جاده های حومه',
-  headerNavigationLinks: [
+  landingHeaderNavigationLinks: [
     { label: 'درباره ما', href: '#aboutus' },
     { label: 'خدمات', href: '#services' },
     { label: 'گالری', href: '#gallery' },
     { label: 'نظرات مشتریان', href: '#reviews' },
     { label: 'سوالات رایج', href: '#faq' },
     { label: 'تماس با ما', href: '#contactus' },
+  ],
+  headerNavigationLinks: [
+    { label: 'درباره ما', href: '/aboutus' },
+    { label: 'خدمات', href: '/services' },
+    { label: 'گالری', href: '/gallery' },
+    { label: 'نظرات مشتریان', href: '/reviews' },
+    { label: 'سوالات رایج', href: '/faq' },
+    { label: 'تماس با ما', href: '/contactus' },
+  ],
+  landingHeaderMenuLinks: [
+    { label: 'صفحه اصلی', href: '/' },
+    { label: 'درباره ما', href: '#aboutus' },
+    { label: 'خدمات', href: '#services' },
+    { label: 'گالری', href: '#gallery' },
+    { label: 'نظرات مشتریان', href: '#reviews' },
+    { label: 'سوالات رایج', href: '#faq' },
+    { label: 'تماس با ما', href: '#contactus' },
+  ],
+  headerMenuLinks: [
+    { label: 'صفحه اصلی', href: '/' },
+    { label: 'درباره ما', href: '/aboutus' },
+    { label: 'خدمات', href: '/services' },
+    { label: 'گالری', href: '/gallery' },
+    { label: 'نظرات مشتریان', href: '/reviews' },
+    { label: 'سوالات رایج', href: '/faq' },
+    { label: 'تماس با ما', href: '/contactus' },
   ],
   headerActionsLinks: [
     { id: 'login', label: 'ورود', href: '/login', target: '_blank' },
@@ -50,26 +76,41 @@ export const siteConfig = {
   ],
   //TODO: Update social links
   footerSocial: [
-    { label: 'RubikaIcon', href: '#rubika', name: 'روبیکا', target: '_blank' },
     {
+      id: 'rubika',
+      label: 'RubikaIcon',
+      href: '#rubika',
+      name: 'روبیکا',
+      target: '_blank',
+    },
+    {
+      id: 'whatsapp',
       label: 'WhatsAppIcon',
       href: '#whatsapp',
       name: 'واتساپ',
       target: '_blank',
     },
     {
+      id: 'instagram',
       label: 'InstagramIcon',
       href: '#instagram',
       name: 'اینستاگرام',
       target: '_blank',
     },
     {
+      id: 'telegram',
       label: 'TelegramIcon',
       href: '#telegram',
       name: 'تلگرام',
       target: '_blank',
     },
-    { label: 'BaleIcon', href: '#bale', name: 'بله', target: '_blank' },
+    {
+      id: 'bale',
+      label: 'BaleIcon',
+      href: '#bale',
+      name: 'بله',
+      target: '_blank',
+    },
   ],
 
   footerSiteInfo: [
