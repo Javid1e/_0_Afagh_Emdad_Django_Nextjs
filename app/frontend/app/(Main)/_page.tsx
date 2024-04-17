@@ -6,7 +6,7 @@ import { siteConfig } from '@/config/site';
 
 export const RoutePage = () => {
   return (
-    <div className="relative flex flex-col h-full">
+    <div className="relative flex flex-col  h-full">
       <Header
         id="landing-header-navbar"
         headerActionLinks={siteConfig.headerActionsLinks}
