@@ -24,3 +24,11 @@ export type OutSideLinkProps = {
 export type OutSideNamedLinkProps = OutSideLinkProps & {
   name: string;
 };
+export type NamedImageLinkProps = {
+  id: string;
+  label: string;
+  href: string;
+  src: string;
+  alt: string;
+  target: string;
+};
