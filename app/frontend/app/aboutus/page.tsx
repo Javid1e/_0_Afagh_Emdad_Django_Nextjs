@@ -6,14 +6,14 @@ import { siteConfig } from '@/config/site';
 
 const page = async () => {
   return (
-    <div className="relative flex flex-col h-full">
+    <div className=" relative flex flex-col h-full">
       <Header
         headerActionLinks={siteConfig.headerActionsLinks}
         headerNavigationLinks={siteConfig.headerNavigationLinks}
         headerMenuLinks={siteConfig.headerMenuLinks}
       />
       <main className="container mx-auto pt-16 px-6 flex-grow">
-        <AboutUs />
+        <AboutUs namedImageLinks={siteConfig.aboutUsCities} />
       </main>
       <Footer
         id="about-footer"
