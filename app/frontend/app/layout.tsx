@@ -39,7 +39,7 @@ export default function RootLayout({
       </head>
       <body
         className={clsx(
-          'font-iransans min-h-screen bg-primary-50 shadow-xl antialiased',
+          ' font-iransans min-h-screen bg-primary-50 shadow-xl antialiased',
           IranSans.variable,
         )}
       >
